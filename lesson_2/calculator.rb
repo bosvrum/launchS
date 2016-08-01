@@ -4,7 +4,7 @@
 # output the result
 
 # answer = Kernel.gets()
-# Kernel.puts(answer)  
+# Kernel.puts(answer)
 
 # My Solution
 
@@ -47,7 +47,7 @@
 # Second Solution
 puts("What's the first number?")
 first = gets.chomp.to_i
-puts ("What's the last number?")
+puts("What's the last number?")
 second = gets.chomp.to_i
 puts("What operation would you like to perform? 1) add 2) substract 3) multiply 4) divide")
 operation = gets.chomp.to_i
@@ -63,10 +63,8 @@ elsif operation == 3
   puts "This is the multiply result #{result}!"
 else
   result = first / second
-  puts "This is the divide result #{result}!"   
+  puts "This is the divide result #{result}!"
 end
-
-
 
 # Launch School solution
 # Kernel.puts("Welcome to Calculator!")
@@ -91,9 +89,3 @@ end
 # end
 
 # Kernel.puts("The result is #{result}")
-
-
-
-
-
-
