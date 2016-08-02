@@ -1,23 +1,38 @@
-VALID_CHOICES = ['rock', 'paper', 'scissors']
+VALID_CHOICES = %w(rock paper scissors)
+
+def test_method
+  prompt('test message')
+end
+
 def prompt(msg)
   Kernel.puts("=> #{msg}")
 end
 
+test_method
+
 def display_results(player, computer)
-  if (player == 'rock' && computer == 'scissors') ||
-      (player == 'paper' && computer == 'rock') ||
-      (player == 'scissors' && computer == 'paper')
+  if player_won(player, computer)
     prompt("You won!")
-  elsif (player == 'rock' && computer == 'paper') ||
-      (player == 'paper' && computer == 'scissors') ||
-      (player == 'scissors' && computer == 'rock')
+  elsif computer_won(player, computer)
     prompt("Computer won!")
   else
     prompt("It's a tie!")
   end
 end
 
-loop do 
+def player_won(player, computer)
+  (player == 'rock' && computer == 'scissors') ||
+    (player == 'paper' && computer == 'rock') ||
+    (player == 'scissors' && computer == 'paper')
+end
+
+def computer_won(player, computer)
+  (player == 'rock' && computer == 'paper') ||
+    (player == 'paper' && computer == 'scissors') ||
+    (player == 'scissors' && computer == 'rock')
+end
+
+loop do
   choice = ''
   loop do
     prompt("Choose one: #{VALID_CHOICES.join(', ')}")
