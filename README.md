@@ -1,3 +1,3 @@
 # README
 
-This repositary contains files with exercises and projects.
+This repository contains files with exercises and projects.
