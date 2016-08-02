@@ -13,19 +13,18 @@ MESSAGES = YAML.load_file('mortgage_messages.yml')
 
 puts MESSAGES.inspect
 
-
 def prompt(msg)
   Kernel.puts("=> #{msg}")
 end
 
-loop do 
+loop do
   prompt(MESSAGES['welcome'])
   prompt(MESSAGES['break_line'])
 
   prompt(MESSAGES['loan_amount'])
 
   amount = ''
-  loop do 
+  loop do
     amount = Kernel.gets.chomp
 
     if amount.empty? || amount.to_f < 0
@@ -40,7 +39,7 @@ loop do
 
   interest_rate = ''
 
-  loop do 
+  loop do
     interest_rate = Kernel.gets.chomp
 
     if interest_rate.empty? || interest_rate.to_f < 0
@@ -50,9 +49,9 @@ loop do
     end
   end
   prompt(MESSAGES['loan_years'])
-  
+
   years = ''
-  loop  do 
+  loop  do
     years = Kernel.gets.chomp
 
     if years.empty? || years.to_i < 0
@@ -66,9 +65,11 @@ loop do
   monthly_interest_rate = annual_interest_rate / 12
   months = years.to_i * 12
 
-  monthly_payment = amount.to_f * (monthly_interest_rate / (1 - (1 + monthly_interest_rate)**-months.to_i)) 
+  monthly_payment = amount.to_f *
+                    (monthly_interest_rate /
+                    (1 - (1 + monthly_interest_rate)**-months.to_i))
 
-  prompt("Your monthly payment is: $#{format('%02.2f', monthly_payment)}") 
+  prompt("Your monthly payment is: $#{format('%02.2f', monthly_payment)}")
 
   prompt(MESSAGES['new_calculation'])
   answer = Kernel.gets().chomp()
