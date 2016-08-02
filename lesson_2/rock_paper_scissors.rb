@@ -11,25 +11,19 @@ end
 test_method
 
 def display_results(player, computer)
-  if player_won(player, computer)
+  if won?(player, computer)
     prompt("You won!")
-  elsif computer_won(player, computer)
+  elsif won?(computer, player)
     prompt("Computer won!")
   else
     prompt("It's a tie!")
   end
 end
 
-def player_won(player, computer)
+def won?(player, computer)
   (player == 'rock' && computer == 'scissors') ||
     (player == 'paper' && computer == 'rock') ||
     (player == 'scissors' && computer == 'paper')
-end
-
-def computer_won(player, computer)
-  (player == 'rock' && computer == 'paper') ||
-    (player == 'paper' && computer == 'scissors') ||
-    (player == 'scissors' && computer == 'rock')
 end
 
 loop do
